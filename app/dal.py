@@ -6,10 +6,10 @@ connection = get_db_connection()
 def get_customers_by_credit_limit_range():
     cur = connection.cursor()
     query = """
-        SELECT customerName, creditLimit
-        FROM customers
-        WHERE creditLimit < 10000 OR creditLimit > 100000;
-    """
+                SELECT customerName, creditLimit
+                FROM customers
+                WHERE creditLimit < 10000 OR creditLimit > 100000;
+            """
     cur.execute(query)
     output = cur.fetchall()
     connection.commit()
