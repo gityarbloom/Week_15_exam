@@ -31,7 +31,7 @@ spec:
           value: "classicmodels"
         - name: USER
           value: "root"
-        - name: PASSWORD
+        - name: MYSQL_ROOT_PASSWORD
           value: "rootpassword"
         
         volumeMounts:
