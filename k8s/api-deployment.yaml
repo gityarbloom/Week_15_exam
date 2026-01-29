@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sales-database-api
+  labels:
+    app: sales-database-api
+spec:
+  replicas: 3
+  
+  selector:
+    matchLabels:
+      app: sales-database-api
+  
+  template:
+    metadata:
+      labels:
+        app: sales-database-api
+    spec:
+      containers:
+      - name: sales-database-api
+        image: israelyarbloom/sales-database-api:v1
+        
+        ports:
+        - containerPort: 8000
+
+        env:
+        - name: HOST
+          value: "sales-database-api"
+        - name: PORT
+          value: "3306"
+        - name: USER
+          value: "root"
+        - name: PASSWORD
+          value: "rootpassword"
+        - name: DATABASE
+          value: "classicmodels"
